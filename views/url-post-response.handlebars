@@ -10,7 +10,7 @@
     </thead>
 
     <tbody>
-        {{#each dataList}}
+        {{#each urlList}}
             <tr>
                 <td>{{this.data}}</td>
 
@@ -22,7 +22,7 @@
 
 <table>
   <thead>
-    <tr>JSON Data Results</tr>
+    <tr>Data Results</tr>
     <tr>
         <th>Name</th>
         <th>Value</th>
@@ -31,15 +31,9 @@
   <tbody>
     {{#each dataList}}
       <tr>
-        <td>{{this.data}}</td>
-        <td>{{this.result}}</td>
+        <td>{{this.jdata}}</td>
+        <td>{{this.jresult}}</td>
       </tr>
     {{/each}}
   </tbody>
 </table>
-
-<ul>
-  {{#each dataList}}
-    <li>{{this.name}}: {{this.value}}
-  {{/each}}
-</ul>
