@@ -1,0 +1,19 @@
+<h1>GET Request Received</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each dataList}}
+            <tr>
+                <td>{{this.data}}</td>
+
+                <td>{{this.result}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
