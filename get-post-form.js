@@ -4,9 +4,6 @@ var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var bodyParser = require('body-parser');
 
-/*app.use(bodyParser.urlencoded({ extended: false }));*/
-/*app.use(bodyParser.json());*/
-
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
@@ -35,44 +32,16 @@ app.post('/', function(req,res){
     jsonParam.push({'jdata':j,'jresult':req.body[j]})
   }
 
-  console.log(urlParam);
-  console.log(req.query);
   var urlResult = {};
   urlResult.dataList = urlParam;
 
-  console.log(jsonParam);
-  console.log(req.body);
+
   var jsonResult = {};
   jsonResult.dataList = jsonParam;
   jsonResult.urlList = urlParam;
+
   res.render('url-post-response', jsonResult);
-
-  /*if(Array.isArray(urlParam) && urlParam.length){
-    res.render('url-post-response', context); 
-  }*/ 
-  
-  /*var jsonParam = [];
-  for (var j in req.body){
-    jsonParam.push({'jdata':j, 'jresult':req.body[j]})
-  }
-  console.log(jsonParam);
-  console.log(req.body);
-  var newList = {};
-  newList.dataList = urlParam;
-  res.render('url-post-response', newList);*/
 });
-
-/*app.post('/', function(req,res){
-  var jsonParam = [];
-  for (var j in req.body){
-    jsonParam.push({'jdata':j,'jresult':req.body[j]})
-  }
-  console.log(jsonParam);
-  console.log(req.body);
-  var jsonResult = {};
-  jsonResult.dataList = jsonParam;
-  res.render('json-post-response', jsonResult);
-});*/
 
 app.use(function(req,res){
   res.status(404);
